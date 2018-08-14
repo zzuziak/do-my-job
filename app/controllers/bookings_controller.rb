@@ -14,14 +14,14 @@ before_action :set_job, only: [:new, :create]
     @booking.user = @user
     @booking.job = @job
     if @booking.save!
-      redirect_to user_bookings_path(@user[:id])
+      redirect_to bookings_path
       else
       render :new
     end
   end
 
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).where(user_id: current_user.id)
     authorize @bookings
   end
 
