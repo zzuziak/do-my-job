@@ -4,9 +4,46 @@ User.delete_all
 
 puts "Clearing database..."
 
-10.times do
-  User.create!(email: "#{Faker::Internet.email}", password: "123456")
-end
+User.create!([{
+  email: "test1@example.com",
+  password: "123456"
+},
+{
+  email: "test2@example.com",
+  password: "123456"
+},
+{
+  email: "test3@example.com",
+  password: "123456"
+},
+{
+  email: "test4@example.com",
+  password: "123456"
+},
+{
+  email: "test5@example.com",
+  password: "123456"
+},
+{
+  email: "test6@example.com",
+  password: "123456"
+},
+{
+  email: "test7@example.com",
+  password: "123456"
+},
+{
+  email: "test8@example.com",
+  password: "123456"
+},
+{
+  email: "test9@example.com",
+  password: "123456"
+},
+{
+  email: "test10@example.com",
+  password: "123456"
+}])
 
 Job.create!([{
   title: "Aesthetic Surgeon",
