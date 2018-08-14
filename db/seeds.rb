@@ -1,18 +1,113 @@
-puts 'Cleaning database...'
-Job.destroy_all
+Booking.delete_all
+Job.delete_all
+User.delete_all
 
-puts 'Creating jobs...'
-jobs_attributes = [
+puts "Clearing database..."
+
+User.create!([{
+  email: "test1@example.com",
+  password: "123456"
+},
+{
+  email: "test2@example.com",
+  password: "123456"
+},
+{
+  email: "test3@example.com",
+  password: "123456"
+},
+{
+  email: "test4@example.com",
+  password: "123456"
+},
+{
+  email: "test5@example.com",
+  password: "123456"
+},
+{
+  email: "test6@example.com",
+  password: "123456"
+},
+{
+  email: "test7@example.com",
+  password: "123456"
+},
+{
+  email: "test8@example.com",
+  password: "123456"
+},
+{
+  email: "test9@example.com",
+  password: "123456"
+},
+{
+  email: "test10@example.com",
+  password: "123456"
+}])
+
+Job.create!([{
+  title: "Aesthetic Surgeon",
+  category: "healthcare",
+  location: "Berlin",
+  description: "Aesthetic surgery including face-job, boob-job, fat reduction",
+  price: 50,
+  guided: false,
+  date: Date.new(2018,9,20),
+  user_id: 5
+  },
   {
-    title:     'Waitress at hipster restaurant',
-    category:   'academia',
-    location:    'Berlin',
-    description:  'One day at the best restaurant in town',
-    price: '50',
-    date: '10/09/2018',
-  }
-]
-Job.create!(jobs_attributes)
-puts 'Finished!'
+    title: "Musician",
+    category: "arts & design",
+    location: "Amsterdam",
+    description: "piano, guitar, flutes",
+    price: 60,
+    guided: true,
+    date: Date.new(2018,11,20),
+    user_id: 6
+    },
+    {
+      title: "President",
+      category: "politics",
+      location: "USA",
+      description: "How it feels to be a Donald",
+      price: 1,
+      guided: false,
+      date: Date.new(2018,8,10),
+      user_id: 6
+      },
+      {
+        title: "Assistant",
+        category: "business & finance",
+        location: "Canada",
+        description: "Xero, copy, coffee",
+        price: 999,
+        guided: false,
+        date: Date.new(2020,8,10),
+        user_id: 9
+        }
+])
 
+Booking.create!([{
+  user_id: 2,
+  job_id: 1,
+  message: "user 2 job 1"
+},
+{
+  user_id: 4,
+  job_id: 2,
+  message: "user 4 job 2"
+},
+{
+  user_id: 2,
+  job_id: 3,
+  message: "user 2 job 3"
+},
+{
+  user_id: 7,
+  job_id: 4,
+  message: "user 7 job 4"
+}
+])
 
+puts "Seeding..."
+puts "Done! Successfully created #{Job.count} jobs, #{User.count} users and #{Booking.count} bookings, yo :) "
