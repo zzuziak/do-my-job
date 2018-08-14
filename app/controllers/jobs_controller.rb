@@ -2,7 +2,12 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
-    @jobs = policy_scope(Job)
+    if params[:query].present? #all jobs displayed if searched with no input
+      @jobs = policy_scope(Job.search(params[:query]))
+    else
+      @jobs = policy_scope(Job)
+    end
+    authorize @jobs
   end
 
   def show

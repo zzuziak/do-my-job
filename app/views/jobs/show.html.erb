@@ -1,5 +1,32 @@
-<%= @job.title %>
-<%= @job[:title] %> <%= @job[:category] %> <%= @job[:location] %> <%= @job[:description] %> <%= @job[:date] %> <%= @job[:price] %> <%= @job[:photo] %>  <%= @job[:guided] %>
+<% url = @job.photo.blank? ? image_path('http://via.placeholder.com/500x920', height: 500, width: 920) : cl_image_path(@job.photo, height: 500, width: 920, crop: :fit) %>
+<div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>');">
+  <div class="container">
+    <div class="headbox">
+      <h2><%= @job.title %></h2>
+      <h3><%= @job.location %></h3>
+      <p><%= @job.category %></p>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Book this job now', new_job_booking_path(@job.id) %>
-
+<div class="container">
+  <div class="row">
+    <div class="mini-info">
+      <p><%= @job.date %></p>
+      <p><%= @job.category %></p>
+      <p><%= @job.guided %></p>
+      <p><%= @job.user.email %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="job-description">
+      <p><%= @job.description %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="job-book">
+      <h3><%= @job.price %></h3>
+        <%= link_to "Book this Job", bookings_path, class: "btn btn-primary btn-job-book" %>
+    </div>
+  </div>
+</div>

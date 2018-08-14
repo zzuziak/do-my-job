@@ -53,17 +53,19 @@ Job.create!([{
   price: 50,
   guided: false,
   date: Date.new(2018,9,20),
-  user_id: 5
+  user_id: 5,
+  remote_photo_url: "https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_1440,w_2560,x_0,y_0/dpr_2.0/c_limit,w_740/fl_lossy,q_auto/v1508201254/171013-Plesset-Plastic-Surgeon-Gone-Bad-hero_rzviix"
   },
   {
     title: "Musician",
     category: "arts & design",
     location: "Amsterdam",
-    description: "piano, guitar, flutes",
+    description: "piano, guitar, flutes and groupies included",
     price: 60,
     guided: true,
     date: Date.new(2018,11,20),
-    user_id: 6
+    user_id: 6,
+    remote_photo_url: "https://timedotcom.files.wordpress.com/2018/04/ed-sheeran-songwriter-premiere.jpg"
     },
     {
       title: "President",
@@ -72,8 +74,9 @@ Job.create!([{
       description: "How it feels to be a Donald",
       price: 1,
       guided: false,
-      date: Date.new(2018,8,10),
-      user_id: 6
+      date: Date.new(2018,8,25),
+      user_id: 6,
+      remote_photo_url: "https://cdn.theatlantic.com/assets/media/img/mt/2016/09/RTX1GZCO/lead_720_405.jpg?mod=1533691850"
       },
       {
         title: "Assistant",
@@ -83,7 +86,8 @@ Job.create!([{
         price: 999,
         guided: false,
         date: Date.new(2020,8,10),
-        user_id: 9
+        user_id: 9,
+        remote_photo_url: "https://overblown.co.uk/wp-content/uploads/2018/01/o-MULTI-TASK-facebook.jpg"
         }
 ])
 
