@@ -16,4 +16,11 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def requests?
+    true
+  end
+
+  def update?
+    true
+  end
 end

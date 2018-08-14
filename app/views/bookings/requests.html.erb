@@ -1,0 +1,34 @@
+<% @bookings.each do |booking| %>
+
+  <li>
+    <%= booking.job.title %>
+    <%= booking.job.date %>
+    <%= booking.job.category %>
+    <%= booking.job.location %>
+    <%= booking.job.description %>
+    <%= booking.job.price %>
+    <%= booking.job.guided %>
+    <%= booking.job.photo %>
+  </li>
+
+  <li>
+    <%= booking.message %>
+    <%= booking.user_id %>
+    <%= booking.user.email %>
+  </li>
+
+  <li>
+    <%= booking.status %>
+
+    <%= form_for booking,  method: :patch do |f| %>
+      <%= f.hidden_field :status, :value => 1 %>
+      <%= f.submit "Approve booking" %>
+    <% end %>
+
+     <%= form_for booking, method: :patch do |f| %>
+      <%= f.hidden_field :status, :value => 0 %>
+      <%= f.submit "Decline booking" %>
+    <% end %>
+
+  </li>
+<% end %>

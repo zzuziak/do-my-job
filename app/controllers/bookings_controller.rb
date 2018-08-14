@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
-before_action :set_user, only: [:new, :create, :index]
+before_action :set_user, only: [:new, :create, :index, :update, :requests]
 before_action :set_job, only: [:new, :create]
+before_action :set_booking, only: [ :update ]
 
 
   def new
@@ -15,7 +16,7 @@ before_action :set_job, only: [:new, :create]
     @booking.job = @job
     if @booking.save!
       redirect_to bookings_path
-      else
+    else
       render :new
     end
   end
@@ -25,10 +26,23 @@ before_action :set_job, only: [:new, :create]
     authorize @bookings
   end
 
+  def requests
+    @bookings = current_user.owned_jobs.map(&:bookings).flatten
+  end
+
+  # def edit
+  #   authorize @booking
+  # end
+
+  def update
+    @booking.update(booking_params)
+    authorize @booking
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:message)
+    params.require(:booking).permit(:message, :status)
   end
 
   def set_user
@@ -37,5 +51,9 @@ before_action :set_job, only: [:new, :create]
 
   def set_job
     @job = Job.find(params[:job_id])
+  end
+
+   def set_booking
+    @booking = Booking.find(params[:id])
   end
 end
