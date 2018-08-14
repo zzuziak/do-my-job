@@ -1,0 +1,5 @@
+<%= @job.title %>
+<%= @job[:title] %> <%= @job[:category] %> <%= @job[:location] %> <%= @job[:description] %> <%= @job[:date] %> <%= @job[:price] %> <%= @job[:photo] %>  <%= @job[:guided] %>
+
+<%= link_to 'Book this job now', new_job_booking_path(@job.id) %>
+

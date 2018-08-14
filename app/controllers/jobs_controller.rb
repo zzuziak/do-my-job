@@ -1,6 +1,15 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:edit, :update, :destroy]
 
+  def index
+    @jobs = policy_scope(Job)
+  end
+
+  def show
+    @job = Job.find(params[:id])
+    authorize @job
+  end
+
   def new
     @job = Job.new
     authorize @job
@@ -43,4 +52,5 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :category, :date, :price, :description, :guided, :photo, :location)
   end
+
 end
