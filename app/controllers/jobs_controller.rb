@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_action :set_job, only: [:edit, :update, :destroy]
+
   def new
     @job = Job.new
     authorize @job
@@ -16,7 +18,27 @@ class JobsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @job
+  end
+
+  def update
+    @job.update(job_params)
+    authorize @job
+    redirect_to job_path(@job)
+  end
+
+  def destroy
+    @job.destroy
+    authorize @job
+    redirect_to root_path
+  end
+
   private
+
+  def set_job
+    @job = Job.find(params[:id])
+  end
 
   def job_params
     params.require(:job).permit(:title, :category, :date, :price, :description, :guided, :photo, :location)
