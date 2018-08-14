@@ -1,0 +1,7 @@
+
+<%= @jobs.each do |job| %>
+  <li>
+   <%= job[:title] %> <%= job[:category] %> <%= job[:location] %> <%= job[:description] %> <%= job[:price] %>
+    <%= link_to "See details", job_path(job.id) %>
+  </li>
+<% end %>

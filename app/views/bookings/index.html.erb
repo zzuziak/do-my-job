@@ -1,0 +1,14 @@
+<% @bookings.each do |booking|  %>
+
+  <li>
+    <%= booking.job.title %>
+    <%= booking.job.date %>
+    <%= booking.job.category %>
+    <%= booking.job.location %>
+    <%= booking.job.description %>
+    <%= booking.job.price %>
+    <%= booking.job.guided %>
+    <%= booking.job.photo %>
+  </li>
+
+<% end %>
