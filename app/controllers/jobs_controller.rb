@@ -1,12 +1,11 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:edit, :update, :destroy]
+  before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
     @jobs = policy_scope(Job)
   end
 
   def show
-    @job = Job.find(params[:id])
     authorize @job
   end
 

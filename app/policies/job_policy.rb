@@ -1,5 +1,12 @@
 class JobPolicy < ApplicationPolicy
 
+  def index?
+    return true
+  end
+
+  def show?
+    return true
+  end
 
   def new?
     create?
@@ -30,11 +37,4 @@ class JobPolicy < ApplicationPolicy
   end
 
 
-  def index?
-    return true
-  end
-
-  def show?
-    return true
-  end
 end
