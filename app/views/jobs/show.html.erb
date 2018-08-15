@@ -25,7 +25,7 @@
       </div>
       <div class="col-xs-12 col-md-3">
         <p><i class="fas fa-hands-helping"></i>
-          <%= @job.guided? ? "without guide" : "with guide" %>
+          <%= @job.guided? ? "with guide" : "without guide" %>
         </p>
       </div>
       <div class="col-xs-12 col-md-3">
@@ -44,7 +44,7 @@
       <h4>Interested?</h4>
           <%= simple_form_for [@job, @booking],  method: :post do |f| %>
           <%= f.input :message, label: "Contact the job owner" %>
-          <%= f.hidden_field :status, value: 0 %>
+          <%= f.hidden_field :status, value: 2 %>
           <%= f.submit "Book the job now!", class: "btn btn-danger btn-job-book" %>
         <% end %>
       <div class="spacer">
