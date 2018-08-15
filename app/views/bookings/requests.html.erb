@@ -5,16 +5,15 @@
   <div class="item">
     <%= cl_image_tag booking.job.photo, height: 100, width: 150, crop: :fill, class:"job-thumbnail" %>
     <div class="item-name text-left">
-      <h3><strong>Requested by:</strong></h3>
-      <p><%= booking.user.first_name.nil? ? booking.user.email : booking.user.first_name  %></p>
+      <h3><strong><%= link_to booking.job.title.upcase, job_path(booking.job) %></strong></h3>
       <h3><strong>Happening on:</strong></h3>
       <p>(<%= booking.job.date %>)</p>
         </div>
     <div class="item-body">
-      <h3><strong><%= link_to booking.job.title.upcase, job_path(booking.job) %></strong></h3>
       <div class="message">
-        
+        <%= cl_image_tag booking.user.photo, class: "avatar-large" %>
         <div class="message-body">
+          <p><strong>Requested by: </strong><%= booking.user.first_name.nil? ? booking.user.email : booking.user.first_name  %></p>
           <p><strong>Message: </strong><%= booking.message %></p>
           <p>(requested: <%= booking.created_at.to_formatted_s(:short) %>)</p>
         </div>

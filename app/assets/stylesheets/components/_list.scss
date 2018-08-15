@@ -29,8 +29,13 @@
   min-width: 150px;
 }
 .item-name h3 {
-  font-size: 13px;
+  font-size: 16px;
   margin: 0px;
+}
+
+.item-name a {
+  text-decoration: none;
+  color: rgba(0,0,0,0.9);
 }
 .item-name p {
   font-size: 13px;
@@ -91,4 +96,16 @@
 
 .button-width {
   width: 100px;
+}
+
+.avatar-large {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+}
+
+.message {
+  display: flex;
+
 }
