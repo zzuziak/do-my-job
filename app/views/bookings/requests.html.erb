@@ -6,7 +6,7 @@
     <%= cl_image_tag booking.job.photo, height: 100, width: 150, crop: :fill, class:"job-thumbnail" %>
     <div class="item-name text-left">
       <h3><strong><%= link_to booking.job.title.upcase, job_path(booking.job) %></strong></h3>
-      <h3><strong>Happening on:</strong></h3>
+      <h4><strong>Happening on:</strong></h4>
       <p>(<%= booking.job.date %>)</p>
         </div>
     <div class="item-body">
