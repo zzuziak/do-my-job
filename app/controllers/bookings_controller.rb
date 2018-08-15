@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 before_action :set_user, only: [:new, :create, :index, :update, :requests]
 before_action :set_job, only: [:new, :create]
-before_action :set_booking, only: [ :update ]
+before_action :set_booking, only: [ :update, :destroy ]
 
 
   def new
@@ -37,6 +37,13 @@ before_action :set_booking, only: [ :update ]
   def update
     @booking.update(booking_params)
     authorize @booking
+    redirect_to requests_path
+  end
+
+  def destroy
+    @booking.destroy
+    authorize @booking
+    redirect_to bookings_path
   end
 
   private
