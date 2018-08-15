@@ -21,12 +21,20 @@
   <div class="row">
     <div class="job-description">
       <p><%= @job.description %></p>
+      <h3><%= @job.price %></h3>
     </div>
   </div>
   <div class="row">
+
     <div class="job-book">
-      <h3><%= @job.price %></h3>
-        <%= link_to "Book this Job", bookings_path, class: "btn btn-primary btn-job-book" %>
+      <h3>Interested?</h3>
+          <%= simple_form_for [@job, @booking],  method: :post do |f| %>
+          <%= f.input :message, label: "Say hi!" %>
+          <%= f.hidden_field :status, value: 0 %>
+          <%= f.submit "Book me!", class: "btn btn-primary btn-job-book" %>
+        <% end %>
     </div>
+
+
   </div>
 </div>

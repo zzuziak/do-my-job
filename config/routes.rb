@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   post 'requests', to: "bookings#requests" # my bookings as a job offerer
   post 'approve', to: "bookings#approve"
   post 'decline', to: "bookings#decline"
+  post 'bookings', to: "bookings#create"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

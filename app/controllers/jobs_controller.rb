@@ -12,6 +12,8 @@ class JobsController < ApplicationController
 
   def show
     authorize @job
+    @booking = Booking.new
+    authorize @booking
   end
 
   def new
