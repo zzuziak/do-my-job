@@ -7,9 +7,9 @@
       <div class="item">
         <%= cl_image_tag job.photo, height: 100, width: 150, crop: :fill, class:"job-thumbnail" %>
         <div class="item-name text-left">
-          <h3><strong>Posted on:</strong></h3>
+          <h4><strong>Posted on:</strong></h4>
           <p><%= job.created_at.to_formatted_s(:short)  %></p>
-          <h3><strong>Happening on:</strong></h3>
+          <h4><strong>Happening on:</strong></h4>
           <p>(<%= job.date %>)</p>
             </div>
         <div class="item-body">
@@ -19,13 +19,18 @@
         <div class="item-status">
           <p class="price">€<%= job.price %></p>
         </div>
-        <div class="cancel">
-          <%= link_to job_path(job), method: :delete, data: {confirm: "Are you sure?"} do %>
-          <div class="btn btn-danger">
-            Delete
-          </div>
+        <div class="item-action">
+          <%= link_to edit_job_path(job) do %>
+            <div class="btn btn-success button-width btn-margin">
+              Edit
+            </div>
           <% end %>
-          </div>
+          <%= link_to job_path(job), method: :delete, data: {confirm: "Are you sure?"} do %>
+            <div class="btn btn-danger button-width btn-margin">
+              Delete
+            </div>
+          <% end %>
+        </div>
       </div>
 
     <% end %>
