@@ -1,9 +1,11 @@
 <% url = @job.photo.blank? ? image_path('http://via.placeholder.com/500x920', height: 500, width: 920) : cl_image_path(@job.photo, height: 500, width: 920, crop: :fit) %>
 <div class="banner" id="job-pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>');">
-  <div class="container">
-    <div class="headbox headbox-job-title">
-    <h1><%= @job.title %></h1>
-    <h3><i class="fas fa-map-marker-alt"></i><%= @job.location %></h3>
+  <div class="container vhheight">
+    <div class="relative">
+      <div class="headbox headbox-job-title">
+        <h1><%= @job.title %></h1>
+      <h3><i class="fas fa-map-marker-alt"></i><%= @job.location %></h3>
+      </div>
     </div>
   </div>
 </div>
