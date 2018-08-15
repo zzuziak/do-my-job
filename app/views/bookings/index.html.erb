@@ -1,14 +1,38 @@
+<div class="container light-bkg">
+
 <% @bookings.each do |booking|  %>
 
-  <li>
-    <%= booking.job.title %>
-    <%= booking.job.date %>
-    <%= booking.job.category %>
-    <%= booking.job.location %>
-    <%= booking.job.description %>
-    <%= booking.job.price %>
-    <%= booking.job.guided %>
-    <%= booking.job.photo %>
-  </li>
+  <div class="item">
+    <%= cl_image_tag booking.job.photo, height: 100, width: 150, crop: :fill, class:"job-thumbnail" %>
+    <div class="item-name text-left">
+      <h3><strong>Posted by:</strong></h3>
+      <p><%= booking.job.user.first_name.nil? ? booking.job.user.email : booking.job.user.first_name  %></p>
+      <h3><strong>Happening on:</strong></h3>
+      <p>(<%= booking.job.date %>)</p>
+        </div>
+    <div class="item-body">
+      <h3><strong><%= link_to booking.job.title.upcase, job_path(booking.job) %></strong></h3>
+      <p><strong>My message: </strong><%= booking.message %></p>
+      <p>(requested: <%= booking.created_at.to_formatted_s(:short) %>)</p>
+    </div>
+    <div class="item-status">
+      <% if booking.status == 2 %>
+        <p class="status pending">Pending</p>
+      <% elsif booking.status == 0 %>
+        <p class="status declined">Declined</p>
+      <% elsif booking.status == 1 %>
+        <p class="status accepted">Accepted</p>
+      <% end %>
+      <p class="price">€<%= booking.job.price %></p>
+    </div>
+    <div class="cancel">
+      <%= link_to booking_path(booking), method: :delete, data: {confirm: "Are you sure?"} do %>
+      <div class="btn btn-warning">
+        Cancel
+      </div>
+      <% end %>
+      </div>
+  </div>
 
 <% end %>
+</div>
