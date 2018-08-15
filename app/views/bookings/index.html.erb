@@ -9,9 +9,9 @@
       <div class="item">
         <%= cl_image_tag booking.job.photo, height: 100, width: 150, crop: :fill, class:"job-thumbnail" %>
         <div class="item-name text-left">
-          <h3><strong>Posted by:</strong></h3>
+          <h4><strong>Posted by:</strong></h4>
           <p><%= booking.job.user.first_name.nil? ? booking.job.user.email : booking.job.user.first_name  %></p>
-          <h3><strong>Happening on:</strong></h3>
+          <h4><strong>Happening on:</strong></h4>
           <p>(<%= booking.job.date %>)</p>
             </div>
         <div class="item-body">
