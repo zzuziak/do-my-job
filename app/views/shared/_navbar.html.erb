@@ -10,9 +10,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "My Jobs", owned_jobs_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Booking requests", requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to "Create new job", new_user_job_path(current_user.id), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My posted Jobs", owned_jobs_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "View applications requests", requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Applications", bookings_path, class: "navbar-wagon-item navbar-wagon-link navbar-divider" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
