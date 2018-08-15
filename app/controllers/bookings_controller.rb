@@ -14,7 +14,7 @@ before_action :set_booking, only: [ :update, :destroy ]
     authorize @booking
     @booking.user = @user
     @booking.job = @job
-    if @booking.save!
+    if @booking.save
       redirect_to bookings_path
     else
       render :new
