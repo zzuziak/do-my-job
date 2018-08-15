@@ -11,6 +11,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   version :bright_face do
     cloudinary_transformation effect: "brightness:30", radius: 20,
-      width: 150, height: 150, crop: :thumb, gravity: :face
+      width: 150, height: 150, crop: :thumb, gravity: :g_faces
   end
 end

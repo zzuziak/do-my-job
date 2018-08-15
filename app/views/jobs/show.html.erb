@@ -15,7 +15,7 @@
       <p><i class="fas fa-briefcase"></i><%= @job.category %></p>
       <p><i class="fas fa-hands-helping"></i><%= @job.guided %></p>
       <p><i class="fab fa-bitcoin"></i><%= @job.price %></p>
-      <p class="avatar"><%= url = @job.user.photo.nil? ? image_path('https://images.onlinelabels.com/images/clip-art/dagobert83/dagobert83_female_user_icon.png') : cl_image_tag(@job.user.photo) %></p>
+      <p class="avatar-large"><%= url = @job.user.photo.nil? ? image_path('https://images.onlinelabels.com/images/clip-art/dagobert83/dagobert83_female_user_icon.png') : cl_image_tag(@job.user.photo) %></p>
 
     </div>
   </div>
