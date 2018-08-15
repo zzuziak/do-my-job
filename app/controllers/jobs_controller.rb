@@ -4,8 +4,10 @@ class JobsController < ApplicationController
   def index
     if params[:query].present? #all jobs displayed if searched with no input
       @jobs = policy_scope(Job.status.search(params[:query]))
+      @jobs_unbooked = policy_scope(Job.not_booked)
     else
       @jobs = policy_scope(Job.status)
+      @jobs_unbooked = policy_scope(Job.not_booked)
 
     end
     authorize @jobs

@@ -5,7 +5,8 @@ class Job < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
 
-  scope :status, -> { joins(:bookings).where.not(bookings: {status: 1}).or(joins(:bookings).where(:bookings_count == 0))}
+  scope :status, -> { joins(:bookings).where(bookings: {status: [0,2]})}
+  scope :not_booked, -> { joins(:bookings).where(:bookings_count == 0)}
 
   include PgSearch
   pg_search_scope :search,
