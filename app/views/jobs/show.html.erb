@@ -1,9 +1,14 @@
+<% @title="Details" %>
 <% url = @job.photo.blank? ? image_path('http://via.placeholder.com/500x920', height: 500, width: 920) : cl_image_path(@job.photo, height: 500, width: 920, crop: :fit) %>
 <div class="banner" id="job-pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>');">
-  <div class="container">
-    <div class="headbox headbox-job-title">
-      <h2><%= @job.title %></h2>
+  <div class="container vhheight">
+    <div class="relative">
+      <a href="#book">
+      <div class="btn btn-lg btn-danger booking-call hidden-xs hidden-sm"> BOOK NOW</div></a>
+      <div class="headbox headbox-job-title">
+        <h1><%= @job.title %></h1>
       <h3><i class="fas fa-map-marker-alt"></i><%= @job.location %></h3>
+      </div>
     </div>
   </div>
 </div>
@@ -11,12 +16,23 @@
 <div class="container">
   <div class="row">
     <div class="mini-info">
-      <p><i class="fas fa-calendar-alt"></i><%= @job.date %></p>
-      <p><i class="fas fa-briefcase"></i><%= @job.category %></p>
-      <p><i class="fas fa-hands-helping"></i><%= @job.guided %></p>
-      <p><i class="fab fa-bitcoin"></i><%= @job.price %></p>
-      <p class="avatar"><%= url = @job.user.photo.nil? ? image_path('https://images.onlinelabels.com/images/clip-art/dagobert83/dagobert83_female_user_icon.png') : cl_image_tag(@job.user.photo) %></p>
-
+      <div class="col-xs-12 col-md-3">
+        <%= cl_image_tag @job.user.photo, class: "avatar-large" %>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <p><i class="fas fa-calendar-alt"></i><%= @job.date %></p>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <p><i class="fas fa-briefcase"></i><%= @job.category %></p>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <p><i class="fas fa-hands-helping"></i>
+          <%= @job.guided? ? "with guide" : "without guide" %>
+        </p>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <p><i class="fab fa-bitcoin"></i><%= @job.price %></p>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -26,11 +42,11 @@
   </div>
   <div class="row">
 
-    <div class="job-book">
+    <div class="job-book" id="book">
       <h4>Interested?</h4>
           <%= simple_form_for [@job, @booking],  method: :post do |f| %>
           <%= f.input :message, label: "Contact the job owner" %>
-          <%= f.hidden_field :status, value: 0 %>
+          <%= f.hidden_field :status, value: 2 %>
           <%= f.submit "Book the job now!", class: "btn btn-danger btn-job-book" %>
         <% end %>
       <div class="spacer">

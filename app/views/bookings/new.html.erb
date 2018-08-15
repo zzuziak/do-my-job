@@ -1,9 +1,17 @@
-<h1>Booking request</h1>
+<% @title="Book the job!" %>
 
-<%= simple_form_for([@job, @booking], url: job_bookings_path) do |f| %>
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= f.label :message %>
-  <%= f.text_field :message %>
-
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <h2><%= @job.title %></h2>
+  <p>(<%= @job.date %>)</p>
+  <br>
+  <div class="job-book">
+    <h4>Interested? Then say something, message can't be blank!</h4>
+        <%= simple_form_for [@job, @booking],  method: :post do |f| %>
+        <%= f.input :message, label: "Contact the job owner" %>
+        <%= f.hidden_field :status, value: 2 %>
+        <%= f.submit "Book the job now!", class: "btn btn-danger btn-job-book" %>
+      <% end %>
+    <div class="spacer">
+    </div>
+  </div>
+</div>
