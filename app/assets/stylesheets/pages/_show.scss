@@ -1,10 +1,10 @@
-.banner {
+#job-pic {
   height: 50vh;
   background-size: cover;
   position: relative;
 }
 
-.headbox{
+.headbox-job-title{
   color: white;
   position: absolute;
   bottom: 10px;
@@ -44,7 +44,7 @@
   position: relative;
 }
 
-.btn {
+.btn-job-book {
   position: absolute;
   right: 0px;
 }
