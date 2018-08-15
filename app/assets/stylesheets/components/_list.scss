@@ -29,8 +29,17 @@
   min-width: 150px;
 }
 .item-name h3 {
-  font-size: 13px;
+  font-size: 16px;
   margin: 0px;
+}
+
+.item-name h4 {
+  font-size: 13px;
+}
+
+.item-name a {
+  text-decoration: none;
+  color: rgba(0,0,0,0.9);
 }
 .item-name p {
   font-size: 13px;
@@ -79,4 +88,28 @@
 
 .cancel {
   padding-left: 40px;
+}
+
+.item-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.button-width {
+  width: 100px;
+}
+
+.avatar-large {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+}
+
+.message {
+  display: flex;
+
 }

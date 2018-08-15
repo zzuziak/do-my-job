@@ -37,6 +37,7 @@ before_action :set_booking, only: [ :update, :destroy ]
   def update
     @booking.update(booking_params)
     authorize @booking
+    redirect_to requests_path
   end
 
   def destroy
