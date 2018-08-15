@@ -3,6 +3,8 @@
 <div class="banner" id="job-pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>');">
   <div class="container vhheight">
     <div class="relative">
+      <a href="#book">
+      <div class="btn btn-lg btn-danger booking-call hidden-xs hidden-sm"> BOOK NOW</div></a>
       <div class="headbox headbox-job-title">
         <h1><%= @job.title %></h1>
       <h3><i class="fas fa-map-marker-alt"></i><%= @job.location %></h3>
@@ -40,7 +42,7 @@
   </div>
   <div class="row">
 
-    <div class="job-book">
+    <div class="job-book" id="book">
       <h4>Interested?</h4>
           <%= simple_form_for [@job, @booking],  method: :post do |f| %>
           <%= f.input :message, label: "Contact the job owner" %>
