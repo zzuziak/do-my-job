@@ -1,22 +1,38 @@
+<div class="banner" style="height: 10vh; color: grey; margin-top: 5vH;">
+    <h1 style="font-size: 30px">Your Search Results(<%= @jobs.count %>)</h1>
+</div>
+
 <div class="container">
-  <h1>Your Search Results(<%= @jobs.count %>)</h1>
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-md-offset-2">
+      <%= form_tag(jobs_path, method: :get) do %>
+        <div class="form-inline flex-form searchbox" style="margin-top: 5vh;">
+          <%= text_field_tag :query, params[:query], placeholder: params[:query], class:"form-control flex-stretch" %>
+          <%= submit_tag 'Search', name: nil, class:"btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <div class="row">
     <% @jobs.each do |job| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <%= link_to job_path(job.id) do %>
-
-          <% url = job.photo.blank? ? image_path('http://via.placeholder.com/250x350', height: 250, width: 350) : cl_image_path(job.photo, height: 250, width: 350, crop: :fit) %>
-
-          <div class="card-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>');">
+        <%= link_to job_path(job) do %>
+        <% url = job.photo.nil? ? image_path('http://via.placeholder.com/250x350', width: 400, height: 250, crop: :fill) : cl_image_path(job.photo, width: 400, height: 250, crop: :fill) %>
+          <div class="card">
+            <div class="card-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>')"></div>
+            <div class="card-footer">
+              <div class="card-description" style=" color:black;">
+                <h2><%= job.title %></h2>
+                <p> <i class="fas fa-briefcase"></i> <%= job[:category] %></p>
+                <p> <i class="fas fa-map-marker-alt"></i> <%= job[:location] %></p>
+                <p> <i class="fab fa-bitcoin"></i> <%= job[:price] %></p>
+                <p> <i class="fas fa-calendar-alt"></i> <%= job[:date] %></p>
+              </div>
+            </div>
           </div>
-
-          <div class="card-footer">
-            <h3><%= job[:title] %></h3>
-            <p class="category"><%= job[:category] %></p>
-            <p class="location"><%= job[:location] %></p>
-            <p class="price"><%= job[:price] %></p>
-          </div>
-
         <% end %>
       </div>
     <% end %>
