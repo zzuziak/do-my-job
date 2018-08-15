@@ -1,8 +1,30 @@
-<% if @jobs.empty? %>
-  <h2>No upcoming jobs!</h2>
-<% else %>
-  <% @jobs.each do |job| %>
-    <h2><%= job.title %></h2>
-    <p><%= job.description %></p>
-  <% end %>
+<div class="container light-bkg">
+
+<% @jobs.each do |job|  %>
+
+  <div class="item">
+    <%= cl_image_tag job.photo, height: 100, width: 150, crop: :fill, class:"job-thumbnail" %>
+    <div class="item-name text-left">
+      <h3><strong>Posted on:</strong></h3>
+      <p><%= job.created_at.to_formatted_s(:short)  %></p>
+      <h3><strong>Happening on:</strong></h3>
+      <p>(<%= job.date %>)</p>
+        </div>
+    <div class="item-body">
+      <h3><strong><%= link_to job.title.upcase, job_path(job) %></strong></h3>
+      <p><strong>Location: </strong><%= job.location %></p>
+    </div>
+    <div class="item-status">
+      <p class="price">€<%= job.price %></p>
+    </div>
+    <div class="cancel">
+      <%= link_to job_path(job), method: :delete, data: {confirm: "Are you sure?"} do %>
+      <div class="btn btn-danger">
+        Delete
+      </div>
+      <% end %>
+      </div>
+  </div>
+
 <% end %>
+</div>
