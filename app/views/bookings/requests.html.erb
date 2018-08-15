@@ -1,34 +1,50 @@
-<% @bookings.each do |booking| %>
+<div class="container light-bkg">
 
-  <li>
-    <%= booking.job.title %>
-    <%= booking.job.date %>
-    <%= booking.job.category %>
-    <%= booking.job.location %>
-    <%= booking.job.description %>
-    <%= booking.job.price %>
-    <%= booking.job.guided %>
-    <%= booking.job.photo %>
-  </li>
+<% @bookings.each do |booking|  %>
 
-  <li>
-    <%= booking.message %>
-    <%= booking.user_id %>
-    <%= booking.user.email %>
-  </li>
+  <div class="item">
+    <%= cl_image_tag booking.job.photo, height: 100, width: 150, crop: :fill, class:"job-thumbnail" %>
+    <div class="item-name text-left">
+      <h3><strong>Requested by:</strong></h3>
+      <p><%= booking.user.first_name.nil? ? booking.user.email : booking.user.first_name  %></p>
+      <h3><strong>Happening on:</strong></h3>
+      <p>(<%= booking.job.date %>)</p>
+        </div>
+    <div class="item-body">
+      <h3><strong><%= link_to booking.job.title.upcase, job_path(booking.job) %></strong></h3>
+      <div class="message">
+        
+        <div class="message-body">
+          <p><strong>Message: </strong><%= booking.message %></p>
+          <p>(requested: <%= booking.created_at.to_formatted_s(:short) %>)</p>
+        </div>
+      </div>
+    </div>
+    <div class="item-status">
+      <% if booking.status == 2 %>
+        <p class="status pending">Pending</p>
+      <% elsif booking.status == 0 %>
+        <p class="status declined">Declined</p>
+      <% elsif booking.status == 1 %>
+        <p class="status accepted">Accepted</p>
+      <% end %>
+      <p class="price">€<%= booking.job.price %></p>
+    </div>
+    <div class="item-action">
+      <p>
+        <%= form_for booking,  method: :patch do |f| %>
+          <%= f.hidden_field :status, :value => 1 %>
+          <%= f.submit "Approve", class: "btn btn-success button-width" %>
+        <% end %>
+      </p>
+      <p>
+       <%= form_for booking, method: :patch do |f| %>
+        <%= f.hidden_field :status, :value => 0 %>
+        <%= f.submit "Decline", class: "btn btn-danger button-width" %>
+      </p>
+      <% end %>
+    </div>
+  </div>
 
-  <li>
-    <%= booking.status %>
-
-    <%= form_for booking,  method: :patch do |f| %>
-      <%= f.hidden_field :status, :value => 1 %>
-      <%= f.submit "Approve booking" %>
-    <% end %>
-
-     <%= form_for booking, method: :patch do |f| %>
-      <%= f.hidden_field :status, :value => 0 %>
-      <%= f.submit "Decline booking" %>
-    <% end %>
-
-  </li>
 <% end %>
+</div>

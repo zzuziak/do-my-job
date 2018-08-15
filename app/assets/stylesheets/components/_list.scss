@@ -80,3 +80,15 @@
 .cancel {
   padding-left: 40px;
 }
+
+.item-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.button-width {
+  width: 100px;
+}
