@@ -4,6 +4,9 @@ class Job < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
 
+
+  scope :status, -> { joins(:bookings).where.not(bookings: {status: 1}).or(joins(:bookings).where(:bookings_count == 0))}
+
   include PgSearch
   pg_search_scope :search,
   against: [ :title, :description, :location ],
