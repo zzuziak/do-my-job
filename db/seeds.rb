@@ -48,7 +48,7 @@ User.create!([{
 Job.create!([{
   title: "Aesthetic Surgeon",
   category: "healthcare",
-  location: "Berlin",
+  location: "Kottbusser Damm 20, Berlin",
   description: "Aesthetic surgery including face-job, boob-job, fat reduction",
   price: 50,
   guided: false,
@@ -59,7 +59,7 @@ Job.create!([{
   {
     title: "Musician",
     category: "arts & design",
-    location: "Amsterdam",
+    location: "Leipziger 42, Berlin",
     description: "piano, guitar, flutes and groupies included",
     price: 60,
     guided: true,
@@ -70,25 +70,80 @@ Job.create!([{
     {
       title: "President",
       category: "politics",
-      location: "USA",
+      location: "Kochstrasse 1, Berlin",
       description: "How it feels to be a Donald",
       price: 1,
       guided: false,
       date: Date.new(2018,8,25),
       user_id: 6,
-      remote_photo_url: "https://cdn.theatlantic.com/assets/media/img/mt/2016/09/RTX1GZCO/lead_720_405.jpg?mod=1533691850"
+      remote_photo_url: "https://cdn.theatlantic.com/assets/media/img/mt/2016/09/RTX1GZCO/lead_720_405.jpg"
       },
       {
         title: "Assistant",
         category: "business & finance",
-        location: "Canada",
+        location: "Grolmanstrasse 42, Berlin",
         description: "Xero, copy, coffee",
         price: 999,
         guided: false,
         date: Date.new(2020,8,10),
         user_id: 9,
         remote_photo_url: "https://overblown.co.uk/wp-content/uploads/2018/01/o-MULTI-TASK-facebook.jpg"
-        }
+        },
+        {
+          title: "Pilot",
+          category: "transportation",
+          location: "Segitzdamm 20, Berlin",
+          description: "Very decent views, possibility to travel, hot cabin crew included",
+          price: 199,
+          guided: false,
+          date: Date.new(2018,10,10),
+          user_id: 4,
+          remote_photo_url: "https://qph.fs.quoracdn.net/main-qimg-01cac1487a385db388df3d46261afcbc-c"
+          },
+          {
+            title: "Pharmacist",
+            category: "healthcare",
+            location: "Torstrasse 20, Berlin",
+            description: "Take a day to help people get the right medication suited to their needs!",
+            price: 29,
+            guided: true,
+            date: Date.new(2018,9,5),
+            user_id: 4,
+            remote_photo_url: "https://img-aws.ehowcdn.com/340x221p/photos.demandstudios.com/getty/article/77/91/89793593.jpg"
+            },
+            {
+              title: "General",
+              category: "politics",
+              location: "Urbanstrasse 25, Berlin",
+              description: "Give orders, meet with politicians, wear a cool uniform!",
+              price: 129,
+              guided: true,
+              date: Date.new(2018,8,18),
+              user_id: 4,
+              remote_photo_url: "https://steamcdn-a.akamaihd.net/steam/apps/606950/header.jpg"
+              },
+              {
+                title: "Priest",
+                category: "politics",
+                location: "Boxhagener Strasse 25, Berlin",
+                description: "Enjoy the sacred life among other priests and nuns.",
+                price: 1029,
+                guided: false,
+                date: Date.new(2018,11,18),
+                user_id: 5,
+                remote_photo_url: "http://www.jokesoftheday.net/jokes-archive/2014/12/22/The-Priest-and-the-Politician.jpg"
+                },
+                {
+                  title: "Therapist",
+                  category: "healthcare",
+                  location: "Lichterberger Strasse 5, Berlin",
+                  description: "If you can't figure out your own life - why not do it for the others?",
+                  price: 10,
+                  guided: false,
+                  date: Date.new(2018,11,1),
+                  user_id: 5,
+                  remote_photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiVXIeRvh1UqkfFBpcduKpaiNo9uy4kOc6coIyUlMIMBlS8hYU"
+                  }
 ])
 
 Booking.create!([{
