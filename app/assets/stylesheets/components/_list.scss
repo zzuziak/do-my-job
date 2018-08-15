@@ -29,12 +29,13 @@
   min-width: 150px;
 }
 .item-name h3 {
-  font-size: 16px;
+  font-size: 20px;
   margin: 0px;
 }
 
 .item-name h4 {
   font-size: 13px;
+  margin-bottom: 5px;
 }
 
 .item-name a {
@@ -100,6 +101,10 @@
 
 .button-width {
   width: 100px;
+}
+
+.btn-margin {
+  margin: 10px;
 }
 
 .avatar-large {
