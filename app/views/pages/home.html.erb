@@ -1,22 +1,25 @@
 <div class="wrapper banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://3.bp.blogspot.com/-eoATvZkAiAg/VZaqEI1nLzI/AAAAAAAACXg/140hoGl5Sw8/s1600/confused%2B%25281%2529.jpg');">
   <div class="container">
     <div class="row">
-      <div class="call-to-action text-center">
+      <div class="call-to-action text-center hidden-xs hidden-sm">
         <h1>Try any job you'd like!</h1>
         <h2>Step in the shoes of a pilot, a therapist or a clown for one day.</h2>
       </div>
+      <div class="call-to-action text-center hidden-md hidden-lg">
+        <h1 style="font-size: 36px; margin-top: 50px;">Try any job you'd like!</h1>
+        <h2>Step in the shoes of a pilot, a therapist or a clown for one day.</h2>
+      </div>
     </div>
+
     <div class="row">
-      <div class="col-sm-12 col-md-8 col-md-offset-2">
+      <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
         <%= form_tag(jobs_path, method: :get) do %>
           <div class="form-inline flex-form searchbox">
-            <%= text_field_tag :query, params[:query], placeholder: "What job are you looking for?", class:"form-control flex-stretch" %>
-            <%= submit_tag 'Search', name: nil, class:"btn btn-primary" %>
+            <%= text_field_tag :query, params[:query], placeholder: "What job are you looking for?", class:"form-control flex-stretch input-field" %>
+            <%= submit_tag 'Search', name: nil, class:"btn search-button" %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
