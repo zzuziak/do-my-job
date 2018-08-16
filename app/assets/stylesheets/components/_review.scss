@@ -1,0 +1,59 @@
+.review {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  padding-left: 0px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  margin: 30px;
+  margin-left: 0px;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 4px;
+  a {
+    color: black;
+  }
+}
+.review:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+.review:last-child {
+  border-bottom: none;
+}
+.review-body {
+  flex-grow: 1;
+}
+.review-body {
+  padding-left: 10px;
+  font-size: 16px;
+  color: rgba(0,0,0,0.7);
+}
+.review-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.review-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+  font-size: 24px;
+}
+.review-body p {
+  margin: 6px 0;
+  font-size: 16px;
+}
+.review-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+.status.accepted {
+  color: #04A366;
+}
+.status.declined {
+  color: red;
+}
+.status.pending {
+  color: $yellow;
+  display: flex;
+  flex-direction: row;
+  .fas {
+    padding: 1px;
+  }
+}

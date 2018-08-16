@@ -8,6 +8,48 @@
     </div>
     <div class="col-xs-12 col-md-6 upper-margin">
       <h2 class="left-margin">REVIEWS</h2>
+      <% @user.owned_jobs.each do |job| %>
+        <% if job.review.present? %>
+          <%= link_to job_path(job) do %>
+            <div class="review">
+              <div class="review-body">
+                <%= cl_image_tag @job.user.photo, class: "avatar-large" %>
+                <%= @job.user.first_name %>
+                <p><strong>
+                    <%= job.title %>
+                </strong></p>
+                <h4>
+                  <%= job.review.title %>
+                </h4>
+                <p>
+                  <%= job.review.message %>
+                </p>
+              </div>
+              <div class="review-status">
+                <p class="status pending"><% job.review.rating.times do %>
+                  <i class="fas fa-star"></i>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to job_path(job) do %>
+            <div class="review">
+              <div class="review-body">
+                <p><strong>
+                    <%= job.title %>
+                </strong></p>
+                <p>No Review yet!</p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+
+

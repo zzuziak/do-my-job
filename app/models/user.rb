@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :rented_jobs, through: :bookings, source: :job # n : n relation
   has_many :owned_jobs, class_name: "Job"
+  has_many :reviews
 end
