@@ -13,8 +13,8 @@
           <%= link_to job_path(job) do %>
             <div class="review">
               <div class="review-body">
-                <%= cl_image_tag @job.user.photo, class: "avatar-large" %>
-                <%= @job.user.first_name %>
+                <%= cl_image_tag job.review.user.photo, class: "avatar-large" %>
+                <p><%= job.review.user.first_name%></p>
                 <p><strong>
                     <%= job.title %>
                 </strong></p>
@@ -26,8 +26,12 @@
                 </p>
               </div>
               <div class="review-status">
-                <p class="status pending"><% job.review.rating.times do %>
+                <p class="status pending">
+                  <% job.review.rating.times do %>
                   <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5-job.review.rating).times do %>
+                  <i class="far fa-star"></i>
                   <% end %>
                 </p>
               </div>
@@ -49,6 +53,7 @@
     </div>
   </div>
 </div>
+<div class="spacer"></div>
 
 
 
