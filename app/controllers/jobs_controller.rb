@@ -2,13 +2,18 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
+
     if params[:query].present? #all jobs displayed if searched with no input
       @jobs = policy_scope(Job).unbooked_or_bookable.text_search(params[:query])
+      if params[:category].present?
+        @jobs = @jobs.select{ |job| job.category == params[:category]  }
+      end
     else
       @jobs = policy_scope(Job).unbooked_or_bookable
-
+      if params[:category].present?
+        @jobs = @jobs.select{ |job| job.category == params[:category]  }
+      end
     end
-    authorize @jobs
   end
 
   def show

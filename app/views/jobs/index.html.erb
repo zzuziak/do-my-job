@@ -8,6 +8,19 @@
       <%= form_tag(jobs_path, method: :get) do %>
         <div class="form-inline flex-form searchbox" style="margin-top: 5vh;">
           <%= text_field_tag :query, params[:query], placeholder: params[:query], class:"form-control flex-stretch" %>
+          <%= select_tag :category, options_for_select([["select category", ""],
+            ["arts & design", "arts & design"],
+            ["business & finance", "business & finance"],
+            ["politics", "politics"],
+            ["academia", "academia"],
+            ["science", "science"],
+            ["sports & events","sports & events"],
+            ["services","services"],
+            ["gastronomy", "gastronomy"],
+            ["entertainment","entertainment"],
+            [ "transportation","transportation"],
+            [ "healthcare", "healthcare"]
+            ]), class: "form-control" %>
           <%= submit_tag 'Search', name: nil, class:"btn btn-primary" %>
         </div>
       <% end %>
