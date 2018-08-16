@@ -4,14 +4,27 @@ class JobsController < ApplicationController
   def index
 
     if params[:query].present? #all jobs displayed if searched with no input
+
       @jobs = policy_scope(Job).unbooked_or_bookable.text_search(params[:query])
       if params[:category].present?
         @jobs = @jobs.select{ |job| job.category == params[:category]  }
+      end
+      @markers = @jobs.map do |job|
+        {
+          lat: job.latitude,
+          lng: job.longitude,
+        }
       end
     else
       @jobs = policy_scope(Job).unbooked_or_bookable
       if params[:category].present?
         @jobs = @jobs.select{ |job| job.category == params[:category]  }
+      end
+      @markers = @jobs.map do |job|
+        {
+          lat: job.latitude,
+          lng: job.longitude,
+        }
       end
     end
   end

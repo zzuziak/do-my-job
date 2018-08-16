@@ -28,26 +28,49 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <% @jobs.uniq.each do |job| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+<div class="main-container-index">
+  <div class="card-container">
+    <div class="row">
+      <% @jobs.uniq.each do |job| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card">
-        <%= link_to job_path(job) do %>
-        <% url = job.photo.nil? ? image_path('http://via.placeholder.com/250x350', width: 400, height: 250, crop: :fill) : cl_image_path(job.photo, width: 400, height: 250, crop: :fill) %>
-            <div class="card-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>')"></div>
-            <div class="card-footer">
-              <div class="card-description" style=" color:black;">
-                <h2 style="padding-left: 6px;"> <%= job.title %></h2>
-                <p style="margin-bottom: -8px;"> <i class="fas fa-briefcase"></i> <%= job[:category] %></p>
-                <p style="margin-bottom: -8px;"> <i class="fas fa-map-marker-alt"></i> <%= job[:location] %></p>
-                <p style="margin-bottom: -8px;"> <i class="fab fa-bitcoin"></i> <%= job[:price] %></p>
-                <p style="margin-bottom: 5px;"> <i class="fas fa-calendar-alt"></i> <%= job[:date] %></p>
+            <%= link_to job_path(job) do %>
+              <% url = job.photo.nil? ? image_path('http://via.placeholder.com/250x350', width: 400, height: 250, crop: :fill) : cl_image_path(job.photo, width: 400, height: 250, crop: :fill) %>
+              <div class="card-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url %>')"></div>
+              <div class="card-footer">
+                <div class="card-description" style=" color:black;">
+                 <h2 style="padding-left: 6px;"> <%= job.title %></h2>
+                  <table>
+                    <tr>
+                      <td> <p> <i class="fas fa-briefcase"></i> </p> </td>
+                      <td> <p> <%= job[:category] %> </p> </td>
+                    </tr>
+                    <tr>
+                      <td> <p> <i class="fas fa-map-marker-alt"></i> </p> </td>
+                      <td> <p> <%= job[:location] %> </p> </td>
+                    </tr>
+                    <tr>
+                      <td> <p> <i class="fab fa-bitcoin"></i> </p> </td>
+                      <td> <p> <%= job[:price] %> </p> </td>
+                    </tr>
+                    <tr>
+                      <td> <p> <i class="fas fa-calendar-alt"></i> </p> </td>
+                      <td> <p> <%= job[:date] %> </p> </td>
+                    </tr>
+                  </table>
+                </div>
               </div>
-            </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="container">
+    <div
+      id="map"
+      data-markers="<%= @markers.to_json %>"
+    ></div>
   </div>
 </div>
+
