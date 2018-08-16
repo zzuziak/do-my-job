@@ -1,5 +1,5 @@
 <div class="banner" style="height: 10vh; color: grey; margin-top: 10vH;">
-    <h1 style="font-size: 30px">Your Search Results(<%= @jobs.count %>)</h1>
+    <h1 style="font-size: 30px">Your Search Results(<%= @jobs.uniq.count %>)</h1>
 </div>
 
 <div class="container">
@@ -8,6 +8,19 @@
       <%= form_tag(jobs_path, method: :get) do %>
         <div class="form-inline flex-form searchbox" style="margin-top: 5vh;">
           <%= text_field_tag :query, params[:query], placeholder: params[:query], class:"form-control flex-stretch" %>
+          <%= select_tag :category, options_for_select([["select category", ""],
+            ["arts & design", "arts & design"],
+            ["business & finance", "business & finance"],
+            ["politics", "politics"],
+            ["academia", "academia"],
+            ["science", "science"],
+            ["sports & events","sports & events"],
+            ["services","services"],
+            ["gastronomy", "gastronomy"],
+            ["entertainment","entertainment"],
+            [ "transportation","transportation"],
+            [ "healthcare", "healthcare"]
+            ]), class: "form-control" %>
           <%= submit_tag 'Search', name: nil, class:"btn btn-primary" %>
         </div>
       <% end %>
@@ -18,7 +31,7 @@
 <div class="main-container-index">
   <div class="card-container">
     <div class="row">
-      <% @jobs.each do |job| %>
+      <% @jobs.uniq.each do |job| %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card">
             <%= link_to job_path(job) do %>
