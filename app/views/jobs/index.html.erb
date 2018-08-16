@@ -1,13 +1,10 @@
-<div class="banner" style="height: 10vh; color: grey; margin-top: 10vH;">
-    <h1 style="font-size: 30px">Your Search Results(<%= @jobs.uniq.count %>)</h1>
-</div>
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-md-offset-2">
+    <div class="col-xs-8 col-xs-offset-2">
       <%= form_tag(jobs_path, method: :get) do %>
         <div class="form-inline flex-form searchbox" style="margin-top: 5vh;">
-          <%= text_field_tag :query, params[:query], placeholder: params[:query], class:"form-control flex-stretch" %>
+          <%= text_field_tag :query, params[:query], placeholder: params[:query], class:"form-control input-field flex-stretch" %>
           <%= select_tag :category, options_for_select([["select category", ""],
             ["arts & design", "arts & design"],
             ["business & finance", "business & finance"],
@@ -20,19 +17,23 @@
             ["entertainment","entertainment"],
             [ "transportation","transportation"],
             [ "healthcare", "healthcare"]
-            ]), class: "form-control" %>
-          <%= submit_tag 'Search', name: nil, class:"btn btn-primary" %>
+            ]), class: "form-control input-field" %>
+          <%= submit_tag 'Search', name: nil, class:"btn btn-primary search-button" %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
 
+
 <div class="main-container-index">
   <div class="card-container">
     <div class="row">
+      <div class="text-left" style="color: grey;">
+        <h1 style="font-size: 30px">Your Search Results (<%= @jobs.uniq.count %>)</h1>
+      </div>
       <% @jobs.uniq.each do |job| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="card">
             <%= link_to job_path(job) do %>
               <% url = job.photo.nil? ? image_path('http://via.placeholder.com/250x350', width: 400, height: 250, crop: :fill) : cl_image_path(job.photo, width: 400, height: 250, crop: :fill) %>
@@ -59,6 +60,7 @@
                     </tr>
                   </table>
                 </div>
+
               </div>
             <% end %>
           </div>
@@ -73,4 +75,3 @@
     ></div>
   </div>
 </div>
-
