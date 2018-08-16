@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :jobs, only: [:index, :create,:edit, :update, :show, :destroy] do
     resources :bookings, only: [:new, :create]
+    resources :reviews, only: [:new, :create]
   end
 
   resources :bookings, only: [:edit, :update, :destroy]
@@ -18,5 +19,7 @@ Rails.application.routes.draw do
   post 'approve', to: "bookings#approve"
   post 'decline', to: "bookings#decline"
   post 'bookings', to: "bookings#create"
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
