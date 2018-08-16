@@ -5,7 +5,7 @@ class BookingPolicy < ApplicationPolicy
     end
   end
   def new?
-    return true
+    create?
   end
 
   def show?
@@ -13,7 +13,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    user != record.job.user
   end
 
   def index?
@@ -30,5 +30,5 @@ class BookingPolicy < ApplicationPolicy
 
   def destroy?
     true
-  end  
+  end
 end
