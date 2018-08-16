@@ -7,16 +7,22 @@ puts "Clearing database..."
 User.create!([{
   email: "test1@example.com",
   password: "123456",
+  first_name: "Angel",
+  last_name: "Merkel",
   remote_photo_url: "https://byuc.files.wordpress.com/2012/07/avat-2.jpg"
 },
 {
   email: "test2@example.com",
   password: "123456",
+  first_name: "Donald",
+  last_name: "The Duck",
   remote_photo_url: "https://st2.depositphotos.com/1007566/12304/v/950/depositphotos_123041468-stock-illustration-avatar-man-cartoon.jpg"
 },
 {
   email: "test3@example.com",
   password: "123456",
+  first_name: "Ed",
+  last_name: "Sheeran",
   remote_photo_url: "https://static1.squarespace.com/static/56f5fdc7c2ea5119892e22c2/571a3e70b654f9dd5cc18184/571a3f80d51cd4ebf04e98bc/1461337989447/Corgi-Echo-0823apf.jpg?format=750w"
 }])
 
@@ -39,7 +45,7 @@ Job.create!([{
     price: 60,
     guided: true,
     date: Date.new(2018,11,20),
-    user_id: 2,
+    user_id: 3,
     remote_photo_url: "https://timedotcom.files.wordpress.com/2018/04/ed-sheeran-songwriter-premiere.jpg"
     },
     {
@@ -50,7 +56,7 @@ Job.create!([{
       price: 1,
       guided: false,
       date: Date.new(2018,8,25),
-      user_id: 3,
+      user_id: 2,
       remote_photo_url: "https://cdn.theatlantic.com/assets/media/img/mt/2016/09/RTX1GZCO/lead_720_405.jpg"
       },
       {
@@ -118,7 +124,62 @@ Job.create!([{
                   date: Date.new(2018,11,1),
                   user_id: 2,
                   remote_photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiVXIeRvh1UqkfFBpcduKpaiNo9uy4kOc6coIyUlMIMBlS8hYU"
-                  }
+                  },
+                  {
+                    title: "Professor",
+                    category: "academia",
+                    location: "Buschallee 5, Berlin",
+                    description: "To be or not to be.",
+                    price: 100,
+                    guided: false,
+                    date: Date.new(2018,11,1),
+                    user_id: 2,
+                    remote_photo_url: "http://depo.ba/media/pictures/2011/05/16/dcd3945e86d674d6d50f3b07439ec3d2.jpg"
+                    },
+                    {
+                      title: "Meth cook",
+                      category: "science",
+                      location: "Alexanderplatz, Berlin",
+                      description: "Baking bread aaaaallll day",
+                      price: 100,
+                      guided: false,
+                      date: Date.new(2018,11,1),
+                      user_id: 3,
+                      remote_photo_url: "https://ssl-gfx.filmweb.pl/q/q/71.0.jpg"
+                      },
+                      {
+                        title: "Girlfriend",
+                        category: "services",
+                        location: "Urbanstrasse 60, Berlin",
+                        description: "Make other people's endings happy. However they want you to.",
+                        price: 180,
+                        guided: false,
+                        date: Date.new(2018,9,1),
+                        user_id: 3,
+                        remote_photo_url: "http://2.bp.blogspot.com/-j6JjhNhZVrs/VXMRqkdeVRI/AAAAAAAAE0c/Ul9Orzo7NEQ/s1600/prostitute.jpeg"
+                        },
+                          {
+                            title: "Chef at Tim Raue",
+                            category: "gastronomy",
+                            location: "Friedrichstrasse 20, Berlin",
+                            description: "Show your skills in the kitchen!",
+                            price: 180,
+                            guided: false,
+                            date: Date.new(2018,9,1),
+                            user_id: 3,
+                            remote_photo_url: "http://media.safebee.com/assets/images/2015/4/chef%20tips.jpg.838x0_q67_crop-smart.jpg"
+                            },
+                            {
+                              title: "Clown",
+                              category: "entertainment",
+                              location: "Seumerstrasse 20, Berlin",
+                              description: "Perfect to get rid of your CLOWN FOBIA!",
+                              price: 50,
+                              guided: false,
+                              date: Date.new(2018,9,1),
+                              user_id: 3,
+                              remote_photo_url: "https://i.ytimg.com/vi/YWlaZbwZpBM/maxresdefault.jpg"
+                              }
 ])
 
 Booking.create!([{
@@ -142,6 +203,29 @@ Booking.create!([{
   message: "I love tasks. I need to do tasks. I love ticking tasks off."
 }
 ])
+
+Review.create! ([{
+  title: "Impressive",
+  message: "All what was promised - delivered. Groupies especially!",
+  job_id: 2,
+  user_id: 1,
+  rating: 5
+},
+{
+  title: "Love my fans!",
+  message: "Can I do another gig, please? Please!!!!!",
+  job_id: 2,
+  user_id: 2,
+  rating: 5
+},
+{
+  title: "White House - TOP NOTCH",
+  message: "Spent there entire day. Jacuzzi, food, strippers. What else?",
+  job_id: 3,
+  user_id: 1,
+  rating: 5
+}
+  ])
 
 puts "Seeding..."
 puts "Done! Successfully created #{Job.count} jobs, #{User.count} users and #{Booking.count} bookings, yo :) "
