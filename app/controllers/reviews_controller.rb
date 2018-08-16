@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review.user = @user
     @review.job = @job
     if @review.save!
-      redirect_to job_path(@job)
+      redirect_to user_path(@job.user)
     else
       render :new
     end
