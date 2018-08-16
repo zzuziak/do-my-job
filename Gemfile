@@ -21,6 +21,8 @@ gem 'carrierwave', '~> 1.2'
 gem "pundit"
 gem "faker"
 gem 'pg_search'
+gem "geocoder"
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 

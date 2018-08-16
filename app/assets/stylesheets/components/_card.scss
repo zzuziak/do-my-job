@@ -52,6 +52,12 @@
   font-weight: lighter;
   text-transform: capitalize;
 }
+
+.card-description td > p {
+  display: flex;
+  align-items: center;
+}
+
 .card-link {
   position: absolute;
   top: 0;
@@ -64,4 +70,13 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.card-container {
+  flex: 1 1 auto;
+}
+
+.main-container-index {
+  display: flex;
+  padding: 20px;
 }
