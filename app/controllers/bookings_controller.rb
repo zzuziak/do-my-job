@@ -11,9 +11,9 @@ before_action :set_booking, only: [ :update, :destroy ]
 
   def create
     @booking = Booking.new(booking_params)
-    authorize @booking
     @booking.user = @user
     @booking.job = @job
+    authorize @booking
     if @booking.save
       redirect_to bookings_path
     else
