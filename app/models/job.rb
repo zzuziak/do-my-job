@@ -6,10 +6,11 @@ class Job < ApplicationRecord
 
   include PgSearch
   pg_search_scope :text_search,
-  against: [ :title, :description, :location ],
+  against: [ :title, :description, :location, :category ],
   using: {
     tsearch: { prefix: true }
   }
+  
   validates :title, presence: true
   validates :category, presence: true, inclusion: {in: ["arts & design", "business & finance", "science", "academia", "sports & events", "services", "gastronomy", "entertainment", "transportation", "politics", "healthcare"]}
   validates :price, presence: true
