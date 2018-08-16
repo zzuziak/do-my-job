@@ -32,6 +32,7 @@
     </div>
     <div class="item-action">
       <p>
+        <% job = booking.job %>
         <%= form_for booking,  method: :patch do |f| %>
           <%= f.hidden_field :status, :value => 1 %>
           <%= f.submit "Approve", class: "btn btn-success button-width" %>
