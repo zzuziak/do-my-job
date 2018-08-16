@@ -32,7 +32,8 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.user = @user
     authorize @job
-    if @job.save!
+    if @job.valid?
+      @job.save
       redirect_to job_path(@job)
     else
       render :new
