@@ -3,20 +3,23 @@ class JobsController < ApplicationController
 
   def index
     if params[:query].present? #all jobs displayed if searched with no input
-      @jobs = policy_scope(Job.search(params[:query])) &&
+      @jobs = policy_scope(Job.search(params[:query]))
+      @markers = @jobs.map do |job|
+        {
+          lat: job.latitude,
+          lng: job.longitude,
+        }
+      end
     else
       @jobs = policy_scope(Job)
+      @markers = @jobs.map do |job|
+        {
+          lat: job.latitude,
+          lng: job.longitude,
+        }
+      end
     end
     authorize @jobs
-
-    @jobs = Job.where.not(latitude: nil, longitude: nil)
-
-    @markers = @jobs.map do |job|
-      {
-        lat: job.latitude,
-        lng: job.longitude#,
-      }
-      end
   end
 
   def show
