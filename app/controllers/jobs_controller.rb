@@ -33,6 +33,12 @@ class JobsController < ApplicationController
     authorize @job
     @booking = Booking.new
     authorize @booking
+    @markers = [
+      {
+        lat: @job.latitude,
+        lng: @job.longitude
+      }]
+
   end
 
   def new
