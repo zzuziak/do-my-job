@@ -52,7 +52,7 @@ Job.create!([{
       title: "President",
       category: "politics",
       location: "Kochstrasse 1, Berlin",
-      description: "So the thing is I'm supposed to go for a G8 in Berlin but honestly? I'd rather go enjoy local brothels and their european offerings. \n No stress, it's an easy job. Just don't think too much and you'll be alright!",
+      description: "So the thing is I'm supposed to go for a G8 in Berlin but honestly? I'd rather go enjoy local brothels and their european offerings. No stress, it's an easy job. Just don't think too much and you'll be alright!",
       price: 1,
       guided: false,
       date: Date.new(2018,8,25),
@@ -78,7 +78,7 @@ Job.create!([{
           price: 199,
           guided: false,
           date: Date.new(2018,10,10),
-          user_id: 2,
+          user_id: 1,
           remote_photo_url: "https://qph.fs.quoracdn.net/main-qimg-01cac1487a385db388df3d46261afcbc-c"
           },
           {
@@ -122,7 +122,7 @@ Job.create!([{
                   price: 10,
                   guided: false,
                   date: Date.new(2018,11,1),
-                  user_id: 2,
+                  user_id: 3,
                   remote_photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiVXIeRvh1UqkfFBpcduKpaiNo9uy4kOc6coIyUlMIMBlS8hYU"
                   },
                   {
@@ -193,7 +193,7 @@ Booking.create!([{
   message: "I'm the worst when it comes to music but I should never give up on my dreams, right?!"
 },
 {
-  user_id: 1,
+  user_id: 3,
   job_id: 3,
   message: "Does it include living in the White House?"
 },
@@ -222,7 +222,7 @@ Review.create! ([{
   title: "White House - TOP NOTCH",
   message: "Spent there entire day. Jacuzzi, food, strippers. What else?",
   job_id: 3,
-  user_id: 1,
+  user_id: 3,
   rating: 5
 }
   ])
