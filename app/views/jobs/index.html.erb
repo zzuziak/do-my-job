@@ -24,13 +24,13 @@
   </div>
 </div>
 
+<div class="card-overview-header" >
+  <h1 style="font-size: 30px">Your Search Results (<%= @jobs.uniq.count %>)</h1>
+</div>
 
 <div class="main-container-index">
   <div class="card-container">
     <div class="row">
-      <div class="text-left" style="color: grey;">
-        <h1 style="font-size: 30px">Your Search Results (<%= @jobs.uniq.count %>)</h1>
-      </div>
       <% @jobs.uniq.each do |job| %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="card">
@@ -67,7 +67,7 @@
       <% end %>
     </div>
   </div>
-  <div class="container">
+
     <div
       id="map"
       data-markers="<%= @markers.to_json %>"

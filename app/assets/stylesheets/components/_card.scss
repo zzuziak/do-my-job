@@ -1,5 +1,6 @@
 .card {
   height: auto;
+  width: 225px;
   position: relative;
   border-radius: 3px;
   box-shadow: 1px 1px 1px rgba(1, 1, 1, 0.06);
@@ -41,12 +42,14 @@
 }
 
 .card-description h2 {
-  font-size: 24px;
+  font-size: 22px;
   color: black;
+  margin-bottom: 3px;
 }
 
 
 .card-description p {
+  margin: 0 0 0px;
   font-size: 14px;
   opacity: 0.7;
   font-weight: lighter;
@@ -72,11 +75,20 @@
   opacity: 0.1;
 }
 
-.card-container {
-  flex: 1 1 auto;
-}
-
 .main-container-index {
   display: flex;
   padding: 20px;
+  padding-top: 0px;
+  justify-content:space-between;
+}
+
+.card-container {
+  flex: 0 1 720px;
+}
+
+
+.card-overview-header {
+  color: grey;
+  margin-left: 40px;
+
 }
