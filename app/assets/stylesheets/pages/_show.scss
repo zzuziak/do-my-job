@@ -37,9 +37,29 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.6);
-  background: #F4F4F4;
+  background: white;
+  margin: 15px 0px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05) !important;
 }
 
+.job-owner {
+  display: flex;
+  align-items: center;
+}
+
+.job-owner-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    font-size: 16px;
+    padding-top: 5px;
+  }
+  strong {
+    font-size: 12px;
+  }
+}
 .fas {
   padding: 10px;
 }
@@ -56,6 +76,18 @@
   background-color: white;
   text-align: center;
   margin-bottom: 10px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  h3 {
+    margin: 5px 0px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(1, 1, 1, 0.1);
+  }
+  p {
+    margin-top: 10px;
+  }
 }
 
 .job-book {

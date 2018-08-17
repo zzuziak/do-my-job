@@ -15,41 +15,55 @@
 
 <div class="container">
   <div class="row">
-    <div class="mini-info">
-      <div class="col-xs-12 col-md-3">
-        <%= cl_image_tag @job.user.photo, class: "avatar-large" %>
-      </div>
-      <div class="col-xs-12 col-md-3">
-        <p><i class="fas fa-calendar-alt"></i><%= @job.date %></p>
-      </div>
-      <div class="col-xs-12 col-md-3">
-        <p><i class="fas fa-briefcase"></i><%= @job.category %></p>
-      </div>
-      <div class="col-xs-12 col-md-3">
-        <p><i class="fas fa-hands-helping"></i>
-          <%= @job.guided? ? "with guide" : "without guide" %>
-        </p>
-      </div>
-      <div class="col-xs-12 col-md-3">
-        <p><i class="fab fa-bitcoin"></i><%= @job.price %></p>
+    <div class="col-xs-12">
+      <div class="mini-info">
+        <div class="col-xs-12 col-md-3">
+          <div class="job-owner">
+          <%= cl_image_tag @job.user.photo, class: "avatar-large" %>
+            <div class="job-owner-name">
+              <!-- <p>Posted by:</p> -->
+              <p><%= @job.user.first_name %></p>
+          </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <p><i class="fas fa-calendar-alt"></i><%= @job.date %></p>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <p><i class="fas fa-briefcase"></i><%= @job.category %></p>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <p><i class="fas fa-hands-helping"></i>
+            <%= @job.guided? ? "with guide" : "without guide" %>
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <p><i class="fab fa-bitcoin"></i><%= @job.price %></p>
+        </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="job-description">
-      <p><%= @job.description %></p>
+    <div class="col-xs-12 col-md-6">
+      <div class="job-description">
+        <h3>Details</h3>
+        <p><%= @job.description %></p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div id="map" data-markers="<%= @markers.to_json %>" style="height: 300px; margin-top: 0; border-radius: 3px; box-shadow: 1px 1px 1px rgba(1, 1, 1, 0.2);"></div>
     </div>
   </div>
   <div class="row">
-
-    <div class="job-book" id="book">
-      <h4>Interested?</h4>
-          <%= simple_form_for [@job, @booking],  method: :post do |f| %>
-          <%= f.input :message, label: "Contact the job owner" %>
-          <%= f.hidden_field :status, value: 2 %>
-          <%= f.submit "Book the job now!", class: "btn btn-danger btn-job-book" %>
-        <% end %>
-      <div class="spacer">
+    <div class="col-xs-12">
+      <div class="job-book" id="book">
+        <h4>Interested?</h4>
+            <%= simple_form_for [@job, @booking],  method: :post do |f| %>
+            <%= f.input :message, label: "Contact the job owner" %>
+            <%= f.hidden_field :status, value: 2 %>
+            <%= f.submit "Book the job now!", class: "btn btn-danger btn-job-book" %>
+          <% end %>
+        <div class="spacer"></div>
       </div>
     </div>
   </div>
