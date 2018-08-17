@@ -58,8 +58,44 @@
     </div>
   </div>
 </div>
+
+
+<div class="wrapper banner footer-banner">
+  <div class="container">
+    <div class="row">
+      <div class="whatwedo text-center">
+        <h2>The Team</h2>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="row">
+      <div class="col-xs-12 col-md-3 add-info">
+        <%= image_tag("zuza.gif", width: "100%", alt: "Name", class: "img-responsive center-block avatar-front") %>
+        <h3 class="text-center">Zuza</h3>
+        <p>Teamleader and Coding-prodigy</p>
+      </div>
+      <div class="col-xs-12 col-md-3 add-info2">
+        <%= image_tag("fabian.gif", width: "100%", alt: "Name", class: "img-responsive center-block avatar-front") %>
+        <h3 class="text-center">Fabian</h3>
+        <p>Business-Genius and Flexboxer</p>
+      </div>
+      <div class="col-xs-12 col-md-3 add-info3">
+        <%= image_tag("ileana.gif", width: "100%", alt: "Name", class: "img-responsive center-block avatar-front") %>
+        <h3 class="text-center">Ileana</h3>
+        <p>Jewelry-Consultant and Leader of Organization</p>
+      </div>
+      <div class="col-xs-12 col-md-3 add-info4">
+        <%= image_tag("julian.gif", width: "100%", alt: "Name", class: "img-responsive center-block avatar-front") %>
+        <h3 class="text-center">Julian</h3>
+        <p>Chief Design Officer and Snuff Tobacco Minister</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-    ScrollReveal().reveal('.add-info', { delay: 300, origin: 'bottom', distance: '50px' });
-    ScrollReveal().reveal('.add-info2', { delay: 500, origin: 'bottom', distance: '50px' });
-    ScrollReveal().reveal('.add-info3', { delay: 700, origin: 'bottom', distance: '50px' });
+    ScrollReveal().reveal('.add-info', { delay: 600, origin: 'bottom', distance: '50px', easing: 'ease-in' });
+    ScrollReveal().reveal('.add-info2', { delay: 900, origin: 'bottom', distance: '50px', easing: 'ease-in' });
+    ScrollReveal().reveal('.add-info3', { delay: 1200, origin: 'bottom', distance: '50px', easing: 'ease-in' });
+    ScrollReveal().reveal('.add-info4', { delay: 1500, origin: 'bottom', distance: '50px', easing: 'ease-in' });
 </script>
