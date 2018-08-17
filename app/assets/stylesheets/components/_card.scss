@@ -79,10 +79,11 @@
   display: flex;
   padding: 20px;
   padding-top: 0px;
+  justify-content:space-between;
 }
 
 .card-container {
-  flex: 0 0 65%;
+  flex: 0 1 720px;
 }
 
 
