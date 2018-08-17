@@ -6,7 +6,7 @@
     <h2>Add a Job to get booked!</h2>
   <% else %>
 
-    <h2>My bookings</h2>
+    <h2>My job requests</h2>
     <% @bookings.each do |booking|  %>
 
       <div class="item">
@@ -34,7 +34,7 @@
         </div>
         <div class="item-action">
           <% if booking.status == 1 %>
-            <%= link_to new_job_review_path(booking) do %>
+            <%= link_to new_job_review_path(booking.job) do %>
             <div class="btn btn-success button-width btn-margin">
               Review
             </div>

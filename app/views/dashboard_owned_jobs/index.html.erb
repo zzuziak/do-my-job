@@ -6,6 +6,8 @@
     <h2>No Jobs right now.</h2>
     <h2>Add a Job to get booked!</h2>
   <% else %>
+  <h2>My jobs</h2>
+
     <% @jobs.each do |job| %>
       <div class="item">
         <%= cl_image_tag job.photo, height: 100, width: 150, crop: :fill, class:"job-thumbnail" %>
