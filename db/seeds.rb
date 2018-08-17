@@ -7,23 +7,23 @@ puts "Clearing database..."
 User.create!([{
   email: "test1@example.com",
   password: "123456",
-  first_name: "Angel",
+  first_name: "Angela",
   last_name: "Merkel",
-  remote_photo_url: "https://byuc.files.wordpress.com/2012/07/avat-2.jpg"
+  remote_photo_url: "http://g4.gazetaprawna.pl/p/_wspolne/pliki/3096000/3096521-angela-merkel-657-323.jpg"
 },
 {
   email: "test2@example.com",
   password: "123456",
   first_name: "Donald",
   last_name: "The Duck",
-  remote_photo_url: "https://st2.depositphotos.com/1007566/12304/v/950/depositphotos_123041468-stock-illustration-avatar-man-cartoon.jpg"
+  remote_photo_url: "https://webiconspng.com/wp-content/uploads/2017/09/Donald-Trump-PNG-Image-92058.png"
 },
 {
   email: "test3@example.com",
   password: "123456",
   first_name: "Ed",
   last_name: "Sheeran",
-  remote_photo_url: "https://static1.squarespace.com/static/56f5fdc7c2ea5119892e22c2/571a3e70b654f9dd5cc18184/571a3f80d51cd4ebf04e98bc/1461337989447/Corgi-Echo-0823apf.jpg?format=750w"
+  remote_photo_url: "https://progresstoday.net/wp-content/uploads/2018/05/ed-sheeran.jpg"
 }])
 
 Job.create!([{
@@ -41,7 +41,7 @@ Job.create!([{
     title: "Musician",
     category: "arts & design",
     location: "Leipziger 42, Berlin",
-    description: "piano, guitar, flutes and groupies included",
+    description: "Coming to Berlin for a gig... But frankly would rather take a day off and enjoy Berlin. Anyone in? \n piano, guitar, flutes and groupies included",
     price: 60,
     guided: true,
     date: Date.new(2018,11,20),
@@ -52,7 +52,7 @@ Job.create!([{
       title: "President",
       category: "politics",
       location: "Kochstrasse 1, Berlin",
-      description: "How it feels to be a Donald",
+      description: "So the thing is I'm supposed to go for a G8 in Berlin but honestly? I'd rather go enjoy local brothels and their european offerings. \n No stress, it's an easy job. Just don't think too much and you'll be alright!",
       price: 1,
       guided: false,
       date: Date.new(2018,8,25),
@@ -133,7 +133,7 @@ Job.create!([{
                     price: 100,
                     guided: false,
                     date: Date.new(2018,11,1),
-                    user_id: 2,
+                    user_id: 3,
                     remote_photo_url: "http://depo.ba/media/pictures/2011/05/16/dcd3945e86d674d6d50f3b07439ec3d2.jpg"
                     },
                     {
