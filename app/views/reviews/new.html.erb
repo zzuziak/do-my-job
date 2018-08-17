@@ -12,7 +12,8 @@
         <%= simple_form_for [@job, @review],  method: :post do |f| %>
         <%= f.input :title, label: "Review headline" %>
         <%= f.input :message, label: "Review the Job" %>
-        <%= f.input :rating, label: "Rate your experience", collection: [1, 2, 3, 4, 5] %>
+        <%= f.input :rating, label: "Rate your experience ", as: :slider, min: 0, max: 5, step: 1, orientation: 'horizontal', ticks: [1, 3, 5], handle: :square, tooltip_position: :bottom, ticks_labels: ['poor', 'good', 'fantastic'] %>
+          <div class="spacer"></div>
         <%= f.submit "Send your Review!", class: "btn btn-danger btn-job-book" %>
       <% end %>
     </div>
