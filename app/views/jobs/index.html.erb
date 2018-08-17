@@ -4,7 +4,7 @@
       <%= form_tag(jobs_path, method: :get) do %>
         <div class="form-inline flex-form searchbox" style="margin-top: 5vh;">
           <%= text_field_tag :query, params[:query], placeholder: params[:query], class:"form-control input-field flex-stretch" %>
-          <%= select_tag :category, options_for_select([["select category", ""],
+          <%= select_tag :category, options_for_select([["all categories", ""],
             ["arts & design", "arts & design"],
             ["business & finance", "business & finance"],
             ["politics", "politics"],
@@ -69,7 +69,7 @@
   </div>
 
     <div
-      id="map"
+      id="map" class="hidden-xs"
       data-markers="<%= @markers.to_json %>"
     ></div>
   </div>
