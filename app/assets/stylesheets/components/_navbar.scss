@@ -19,6 +19,9 @@
 .navbar-wagon-brand img {
   height: 50px;
 }
+.navbar-wagon-brand {
+  display: flex;
+}
 
 /* User Avatar */
 .navbar-wagon .avatar {
@@ -83,4 +86,9 @@
 
 .navbar-divider {
   border-left: 1px solid grey;
+}
+
+.projectname {
+  margin-left: 20px;
+  color: black;
 }
