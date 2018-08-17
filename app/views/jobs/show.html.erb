@@ -20,10 +20,7 @@
         <div class="col-xs-12 col-md-3">
           <div class="job-owner">
           <%= cl_image_tag @job.user.photo, class: "avatar-large" %>
-            <div class="job-owner-name">
-              <!-- <p>Posted by:</p> -->
-              <p><%= @job.user.first_name %></p>
-          </div>
+            <p class="job-owner-name"><%= @job.user.first_name %></p>
           </div>
         </div>
         <div class="col-xs-12 col-md-3">
