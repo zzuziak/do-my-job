@@ -9,23 +9,13 @@ class JobsController < ApplicationController
       if params[:category].present?
         @jobs = @jobs.select{ |job| job.category == params[:category]  }
       end
-      @markers = @jobs.map do |job|
-        {
-          lat: job.latitude,
-          lng: job.longitude,
-        }
-      end
+      set_markers
     else
       @jobs = policy_scope(Job).unbooked_or_bookable
       if params[:category].present?
         @jobs = @jobs.select{ |job| job.category == params[:category]  }
       end
-      @markers = @jobs.map do |job|
-        {
-          lat: job.latitude,
-          lng: job.longitude,
-        }
-      end
+      set_markers
     end
   end
 
@@ -33,12 +23,11 @@ class JobsController < ApplicationController
     authorize @job
     @booking = Booking.new
     authorize @booking
-    @markers = [
-      {
+    @markers = [{
         lat: @job.latitude,
-        lng: @job.longitude
+        lng: @job.longitude,
+        infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { job: @job }) },
       }]
-
   end
 
   def new
@@ -83,6 +72,16 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :category, :date, :price, :description, :guided, :photo, :location)
+  end
+
+  def set_markers
+    @markers = @jobs.map do |job|
+      {
+        lat: job.latitude,
+        lng: job.longitude,
+        infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { job: job }) },
+      }
+    end
   end
 
 end
