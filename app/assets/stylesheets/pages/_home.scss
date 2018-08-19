@@ -13,6 +13,7 @@
   background-size: cover;
 }
 
+
 // .searchbox {
 //   -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
 //   -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
@@ -48,7 +49,7 @@
   background-color: $blue;
   color: white;
   height: 50px;
-  border-radius: 15px;
+  border-radius: 10px;
   font-size: 20px;
   font-family: 'Cairo', sans-serif;
 }
@@ -74,6 +75,12 @@ a:hover {
 
 .sub-banner{
   color: black;
+  height: 100vh;
+}
+
+.sub-banner.team{
+  color: black;
+  height: 70vh;
 }
 
 .add-info {
@@ -100,5 +107,3 @@ a:hover {
   -moz-box-shadow: 6px 6px 18px 0px rgba(0,0,0,0.75);
   box-shadow: 6px 6px 18px 0px rgba(0,0,0,0.75);
 }
-
-
