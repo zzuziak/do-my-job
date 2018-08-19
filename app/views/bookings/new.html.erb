@@ -1,17 +1,21 @@
 <% @title="Book the job!" %>
 
-<div class="container" style="margin-top: 100px;">
-  <h2><%= @job.title %></h2>
-  <p>(<%= @job.date %>)</p>
-  <br>
-  <div class="job-book">
-    <h4>Interested? Then say something, message can't be blank!</h4>
+    <div class="container" style="margin-top: 100px;">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h2><%= @job.title %></h2>
+      <p>(<%= @job.date %>)</p>
+      <br>
+      <div class="job-book">
+        <h4>Interested? Then say something, message can't be blank!</h4>
         <%= simple_form_for [@job, @booking],  method: :post do |f| %>
         <%= f.input :message, label: "Contact the job owner" %>
         <%= f.hidden_field :status, value: 2 %>
         <%= f.submit "Book the job now!", class: "btn btn-danger btn-job-book" %>
-      <% end %>
-    <div class="spacer">
+        <% end %>
+        <div class="spacer">
+        </div>
+      </div>
     </div>
   </div>
 </div>
