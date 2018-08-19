@@ -23,11 +23,11 @@ class JobsController < ApplicationController
     authorize @job
     @booking = Booking.new
     authorize @booking
-    @markers = {
+    @markers = [{
         lat: @job.latitude,
         lng: @job.longitude,
         infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { job: @job }) },
-      }
+      }]
   end
 
   def new
