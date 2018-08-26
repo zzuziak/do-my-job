@@ -75,6 +75,11 @@ a:hover {
 
 .sub-banner{
   color: black;
+  height: 100%;
+}
+
+.info-banner {
+  color: black;
   height: 100vh;
 }
 
@@ -106,4 +111,8 @@ a:hover {
   -webkit-box-shadow: 6px 6px 18px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 6px 6px 18px 0px rgba(0,0,0,0.75);
   box-shadow: 6px 6px 18px 0px rgba(0,0,0,0.75);
+}
+
+.team-description {
+  margin: 10px;
 }
