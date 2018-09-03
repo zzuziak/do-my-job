@@ -52,7 +52,7 @@ Job.create!([{
       title: "President",
       category: "politics",
       location: "Kochstrasse 1, Berlin",
-      description: "So the thing is I'm supposed to go for a G8 in Berlin but honestly? I'd rather go enjoy local brothels and their european offerings. No stress, it's an easy job. Just don't think too much and you'll be alright!",
+      description: "So the thing is I'm supposed to go for a G8 in Berlin but honestly? I'd rather go enjoy local Berlin attractions. No stress, it's an easy job. Just don't think too much and you'll be alright!",
       price: 1,
       guided: false,
       date: Date.new(2018,8,25),
@@ -147,17 +147,6 @@ Job.create!([{
                       user_id: 3,
                       remote_photo_url: "https://ssl-gfx.filmweb.pl/q/q/71.0.jpg"
                       },
-                      {
-                        title: "Girlfriend",
-                        category: "services",
-                        location: "Urbanstrasse 60, Berlin",
-                        description: "Make other people's endings happy. However they want you to.",
-                        price: 180,
-                        guided: false,
-                        date: Date.new(2018,9,1),
-                        user_id: 3,
-                        remote_photo_url: "http://2.bp.blogspot.com/-j6JjhNhZVrs/VXMRqkdeVRI/AAAAAAAAE0c/Ul9Orzo7NEQ/s1600/prostitute.jpeg"
-                        },
                           {
                             title: "Chef at Tim Raue",
                             category: "gastronomy",
@@ -220,7 +209,7 @@ Review.create! ([{
 },
 {
   title: "White House - TOP NOTCH",
-  message: "Spent there entire day. Jacuzzi, food, strippers. What else?",
+  message: "Spent there entire day. Jacuzzi, food, Netflix. What else?",
   job_id: 3,
   user_id: 3,
   rating: 5
